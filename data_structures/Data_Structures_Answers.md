@@ -75,16 +75,17 @@ For each of the methods associated with each data structure, classify it based o
 ## Heap
 
 1.  What is the runtime complexity of your `heapsort` function?
+    Not sure
 
 2.  What is the space complexity of the `heapsort` function? Recall that your implementation should return a new array with the sorted data. What would be the space complexity if your function instead altered the input array?
 
 3.  What is the runtime complexity of `bubbleUp`?
-
+    O(n)
 4.  What is the runtime complexity of `siftDown`?
-
+    O(n)
 5.  What is the runtime complexity of `insert`?
-
+    O(n)
 6.  What is the runtime complexity of `delete`?
-
+    O(n)
 7.  What is the runtime complexity of `getMax`?
     * This is easy, since the max value is always at the top of the tree, the time complexity here will be O(1).
