@@ -1,3 +1,20 @@
+const heapsort = arr => {
+  /* Your code here */
+  const heap = new Heap();
+
+  arr.map(item => {
+    heap.insert(item);
+  });
+
+  const newArr = [];
+
+  while (heap.getSize()) {
+    newArr.unshift(heap.delete());
+  }
+
+  return newArr;
+};
+
 class Heap {
   constructor() {
     this.storage = [null];
@@ -10,6 +27,13 @@ class Heap {
     this.bubbleUp(index);
   }
 
+  // removes the max value from the heap and then returns it
+
+  // Note: This tripped me up a bit, until I looked at what it
+  // was doing, and realized that that .pop is used, NOT .shift.
+  // Because of this, the max value item in the heap will be at
+  // the far left of the array, thus arranged smallest to largest,
+  // not largest to smallest.
   delete() {
     if (this.storage.length === 2) {
       this.size--;
@@ -18,8 +42,13 @@ class Heap {
       return this.storage[0];
     }
     this.size--;
+
     const max = this.storage[1];
+
+    // this.storage.pop() removes the last item from this.storage and sets it as the new this.storage root (index 1)??x
+
     this.storage[1] = this.storage.pop();
+
     this.siftDown(1);
     return max;
   }
@@ -66,28 +95,9 @@ class Heap {
     }
   }
 }
- 
-function heapsort(arr) {
-  /* Your code here */
-  const heap = new Heap();
-  heap.storage = arr;
-  console.log(heap);
-  const sort = (index) => {
-  for (let i = 0; i < arr.length - 1; i++) {
-    console.log(arr[i]);
-    if (arr[i] < arr[i + 1]) {
-      heap.siftDown(i)
-      sort(arr[i-1])
-    }
-    else return heap;
-  }
-  sort[]
-}
-    console.log(heap);
-  return arr;
-}
 
-console.log(heapsort([100, 20, 3, 6, 78, 4, 234, 23, 15, 45645]));
+const arr = [1, 45, 78, 36, 58, 9, 67, 46];
+console.log(heapsort(arr));
 
 module.exports = {
   Heap,
